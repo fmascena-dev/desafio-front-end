@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { Photo } from "@/types/photo";
 import { useFavorites } from "@/store/useFavorites";
+import { useState } from "react";
+import Modal from "./Modal";
 
 export default function PhotoCard({ photo }: { photo: Photo }) {
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorited = favorites.some((f) => f.id === photo.id);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -17,6 +20,7 @@ export default function PhotoCard({ photo }: { photo: Photo }) {
             alt={photo.alt_description || "Foto"}
             fill
             className="object-cover"
+            onClick={() => setIsOpen(true)}
             loading="lazy"
           />
         </div>
@@ -33,6 +37,8 @@ export default function PhotoCard({ photo }: { photo: Photo }) {
           {isFavorited ? "❤️" : "🤍"}
         </button>
       </div>
+
+      {isOpen && <Modal photo={photo} onClose={() => setIsOpen(false)} />}
     </>
   );
 }
