@@ -4,12 +4,12 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { cn } from "@/lib/utils";
 import { Lobster } from "next/font/google";
 import { useState } from "react";
-// import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 
 const lobster = Lobster({ weight: "400", subsets: ["latin"] });
 
 export default function LoginPage() {
-  // const router = useRouter()
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [erro, setErro] = useState("");
@@ -29,6 +29,9 @@ export default function LoginPage() {
       setErro("A senha deve ter pelo menos 6 caracteres!");
       return;
     }
+
+    localStorage.setItem("auth", "true");
+    router.push("/feed");
   };
 
   return (
