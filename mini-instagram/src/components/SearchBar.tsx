@@ -1,10 +1,26 @@
 "use client";
 
-export default function SearchBar() {
+import { FormEvent, useState } from "react";
+
+interface Props {
+  onSearch: (searchTerm: string) => void;
+}
+
+export default function SearchBar({onSearch}: Props) {
+  const [term, setTerm] = useState('')
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    onSearch(term)
+  }
+
+
   return (
-    <form className="flex gap-4 mb-6">
+    <form onSubmit={handleSubmit} className="flex gap-4 mb-6">
       <input
         type="text"
+        value={term}
+        onChange={(e) => setTerm(e.target.value)}
         placeholder="Buscar por: natureza, cidades, animais..."
         className="flex-1 px-4 py-2 rounded-md text-gray-50 border border-gray-300 shadow-sm focus:outline-none focus:border-[#f09433] transition duration-300"
       />
