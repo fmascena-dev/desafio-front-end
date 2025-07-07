@@ -1,6 +1,7 @@
 "use client";
 
 import { Photo } from "@/types/photo";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,9 +14,21 @@ export default function Modal({ photo, onClose }: ModalProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
-    <>
-      <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-        <div className="bg-white rounded-xl shadow-lg max-w-xl w-full px-6 py-4 relative">
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white rounded-xl shadow-lg max-w-xl w-full px-6 py-4 relative"
+        >
           <button
             onClick={onClose}
             className="absolute -top-4 -right-4 w-10 h-10 rounded-full font-extrabold text-gray-950 hover:text-red-500 transition duration-300 text-xl cursor-pointer bg-white"
@@ -47,7 +60,9 @@ export default function Modal({ photo, onClose }: ModalProps) {
           <h2 className="text-xl font-bold">{photo.user.name}</h2>
 
           {photo.description && (
-            <p className="mt-2 text-gray-700">{photo.description}</p>
+            <p className="mt-2 line-clamp-2 text-gray-700">
+              {photo.description}
+            </p>
           )}
 
           <a
@@ -58,8 +73,8 @@ export default function Modal({ photo, onClose }: ModalProps) {
           >
             Ver perfil na Unsplash →
           </a>
-        </div>
-      </div>
-    </>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
