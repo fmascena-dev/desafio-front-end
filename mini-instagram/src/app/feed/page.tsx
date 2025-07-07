@@ -13,16 +13,35 @@ export default function Feed() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadPhotos();
+    const cachedPhotos = localStorage.getItem("photos");
+
+    if (cachedPhotos) {
+      setPhotos(JSON.parse(cachedPhotos));
+    } else {
+      loadPhotos();
+    }
   }, []);
 
   const loadPhotos = async (searchTerm?: string) => {
     try {
       setLoading(true);
+
       const data = await fetchPhotos(searchTerm);
       setPhotos(data);
-    } catch (error) {
+
+      if (!searchTerm) {
+        localStorage.setItem("photos", JSON.stringify(data));
+      }
+    } catch (error: unknown) {
       console.error("Erro ao carregar fotos!", error);
+
+      const message =
+        error instanceof Error &&
+        error.message.includes("Erro ao buscar imagens")
+          ? "Você atingiu o limite de requisições da API do Unsplash ou houve um erro na conexão. Por favor, tente novamente em alguns minutos."
+          : "Ocorreu um erro inesperado. Tente novamente.";
+
+      alert(message);
     } finally {
       setLoading(false);
     }
@@ -38,6 +57,7 @@ export default function Feed() {
     <main className="w-full max-w-6xl px-4 py-6 mx-auto overflow-x-hidden">
       <Header />
       <SearchBar onSearch={handleSearch} />
+
       {loading ? (
         <p className="text-gray-200 font-bold text-2xl flex justify-center items-center mt-6">
           Carregando imagens...
