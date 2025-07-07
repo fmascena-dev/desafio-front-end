@@ -43,7 +43,7 @@ export default function Feed() {
           Carregando imagens...
         </p>
       ) : (
-        <div className="grid gap-6 grid-cols-1 sm:gri-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
           {photos.map((photo) => (
             <PhotoCard key={photo.id} photo={photo} />
           ))}
