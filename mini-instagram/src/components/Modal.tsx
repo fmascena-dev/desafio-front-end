@@ -43,7 +43,7 @@ export default function Modal({ photo, onClose }: ModalProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 200 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="bg-white rounded-xl shadow-lg max-w-xl w-full px-6 py-4 relative"
+            className="bg-white rounded-xl m-7 shadow-lg max-w-xl w-full px-6 py-4 relative"
           >
             <button
               onClick={handleClose}
