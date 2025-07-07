@@ -6,6 +6,7 @@ interface State {
   favorites: Photo[];
   toggleFavorite: (photo: Photo) => void;
   loadFavorites: () => void;
+  clearFavorites: () => void;
 }
 
 export const useFavorites = create<State>((set, get) => ({
@@ -27,6 +28,12 @@ export const useFavorites = create<State>((set, get) => ({
     set({ favorites: newFavorites });
     if (typeof window !== "undefined") {
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    }
+  },
+  clearFavorites: () => {
+    set({ favorites: [] });
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("favorites");
     }
   },
 }));
