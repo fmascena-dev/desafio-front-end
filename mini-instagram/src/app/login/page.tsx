@@ -1,12 +1,9 @@
 "use client";
 
-import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { cn } from "@/lib/utils";
-import { Lobster } from "next/font/google";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
-const lobster = Lobster({ weight: "400", subsets: ["latin"] });
+import Logo from "@/components/Logo";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -36,20 +33,7 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-foreground text-background px-4">
-      <h1
-        className={`${lobster.className} text-4xl font-bold text-primary h-24`}
-      >
-        <TypingAnimation
-          className={cn(
-            "text-5xl font-bold leading-[5rem] tracking-[-0.02em]",
-            "bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888]",
-            "bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient"
-          )}
-        >
-          InstaPocket
-        </TypingAnimation>
-      </h1>
-
+      <Logo />
       <form
         onSubmit={handleLogin}
         className="bg-gray-900 p-8 rounded-md shadow-md w-full max-w-md"
