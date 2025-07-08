@@ -3,10 +3,11 @@
 import Header from "@/components/Header";
 import PhotoCard from "@/components/PhotoCard";
 import { cn } from "@/lib/utils";
-import { useFavorites } from "@/store/useFavorites";
+import { useFavorites, useFavoritesInit } from "@/store/useFavorites";
 import { useState } from "react";
 
 export default function FavoritesPage() {
+  useFavoritesInit();
   const { favorites, clearFavorites } = useFavorites();
   const [showConfirm, setShowConfirm] = useState(false);
 
