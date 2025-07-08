@@ -66,7 +66,7 @@ Clone o repositório:
 git clone https://github.com/fmascena-dev/desafio-front-end/tree/felipe-mascena
 cd mini-instagram
 ```
-Crie um arquivo de ambiente:
+**Crie um arquivo de ambiente:**
 
 Na raiz do projeto, crie um arquivo chamado .env.local e adicione sua chave de acesso da Unsplash API:
 
@@ -75,7 +75,7 @@ NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=SUA_CHAVE_DE_ACESSO_DA_UNSPLASH
 ```
 **Substitua** `SUA_CHAVE_DE_ACESSO_DA_UNSPLASH` **pela sua Access Key real.**
 
-Instale as dependências:
+**Instale as dependências:**
 
 ```
 npm install
@@ -95,7 +95,7 @@ yarn dev
 
 **A aplicação estará disponível em** `http://localhost:3000`.
 
-### 🛠️ Estrutura de Pastas
+#### 🛠️ Estrutura de Pastas
 
 `src/app/`: Contém as páginas da aplicação (page.tsx, layout.tsx).
 
@@ -121,7 +121,7 @@ yarn dev
 
 `src/components/SearchBar.tsx`: Componente de barra de pesquisa.
 
-src/components/magicui/typing-animation.tsx`: Componente de animação de digitação (substituí magicui por essa estrutura, assumindo ser um componente customizado).
+`src/components/magicui/typing-animation.tsx`: Componente de animação de digitação.
 
 `src/lib/`: Funções utilitárias.
 
