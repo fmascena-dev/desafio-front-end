@@ -42,5 +42,5 @@ export function useFavoritesInit() {
   const { loadFavorites } = useFavorites();
   useEffect(() => {
     loadFavorites();
-  }, []);
+  }, [loadFavorites]);
 }
