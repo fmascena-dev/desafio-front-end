@@ -99,17 +99,21 @@ yarn dev
 
 `src/app/`: Contém as páginas da aplicação (page.tsx, layout.tsx).
 
-`src/app/page.tsx`: Redireciona para a página de login.
-
-`src/app/login/page.tsx`: Página de login.
+`src/app/favorites/page.tsx`: Página para visualizar fotos favoritas.
 
 `src/app/feed/page.tsx`: Página principal com o feed de fotos.
 
-`src/app/favorites/page.tsx`: Página para visualizar fotos favoritas.
+`src/app/login/page.tsx`: Página de login.
 
 `src/app/globals.css`: Estilos globais e configurações do Tailwind CSS, incluindo temas claro/escuro e animações.
 
+`src/app/page.tsx`: Redireciona para a página de login.
+
+`src/app/layout.tsx`: Layout da aplicação.
+
 `src/components/`: Componentes React reutilizáveis.
+
+`src/components/magicui/typing-animation.tsx`: Componente de animação de digitação para a Logo.
 
 `src/components/Header.tsx`: Componente do cabeçalho da aplicação.
 
@@ -120,8 +124,6 @@ yarn dev
 `src/components/PhotoCard.tsx`: Componente para exibir uma única foto e interação de favoritos.
 
 `src/components/SearchBar.tsx`: Componente de barra de pesquisa.
-
-`src/components/magicui/typing-animation.tsx`: Componente de animação de digitação.
 
 `src/lib/`: Funções utilitárias.
 
