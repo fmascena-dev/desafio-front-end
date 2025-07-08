@@ -1,6 +1,11 @@
 # 📸 InstaPocket
 *InstaPocket é uma aplicação web moderna, inspirada em redes sociais de fotos, desenvolvida com* **Next.js 14+**, **Tailwind**, **Typescript** *e que consome a* **API do Unsplash** *para exibir e gerenciar fotos. A aplicação permite aos usuários visualizar fotos, buscar por termos específicos, e favoritar imagens, com a funcionalidade de persistência de favoritos no navegador.*
 
+#### ⚠️ Observação
+
+- *Para fazer login, pode usar qualquer email, desde que termine como o exemplo:* **@algumacoisa.com**
+- **Ao carregar o feed pela primeira vez, permiti que a aplicação armazene a primeira requisição em cache, afim de não ter requisições desnecessárias a API. Mas ao BUSCAR novas fotos, haverá outra requisição.**
+
 ### ✨ Funcionalidades
 
 - **Página de Login:** *Autenticação básica com validação de formulário.*
